@@ -7,11 +7,13 @@ sending discover request
 waiting 5 seconds for responses...
 
 ----192.168.1.100----
-MAC:	dc:9f:db:81:9b:57
-IP:	192.168.1.100
-PROD:	AirCam
-NAME:	AirCam
-VER:	AirCam.GM8126.v3.1.4.39.7e42364.160301.0153
+MAC:      dc:9f:db:81:9b:57
+IP:       192.168.1.100
+HOSTNAME: AirCam
+PRODUCT:  AirCam
+VERSION:  AirCam.GM8126.v3.1.4.39.7e42364.160301.0153
+UPTIME:   00:01:50:19
+UNKNOWN:  type:0x0f data:|00 00 00 50|...P|
 ---------------------
 done
 ```

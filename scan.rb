@@ -59,6 +59,12 @@ def parse(buf)
     when 0x0c # product name
       tmplen = arr.shift(2).pack("C*").unpack("n")[0]
       prod = arr.shift(tmplen).pack("C*")
+    when 0x0d # SSID?
+      tmplen = arr.shift(2).pack("C*").unpack("n")[0]
+      ssid = arr.shift(tmplen).pack("C*")
+    when 0x14 # full model name?
+      tmplen = arr.shift(2).pack("C*").unpack("n")[0]
+      model = arr.shift(tmplen).pack("C*")
     else # unsupported/unknown
       str = "type:0x%02x " % type
       tmplen = arr.shift(2).pack("C*").unpack("n")[0]
@@ -68,8 +74,10 @@ def parse(buf)
   end
   puts "MAC:      #{mac}" if mac
   puts "IP:       #{ip}" if ip
+  puts "SSID:     #{ssid}" if ssid
   puts "HOSTNAME: #{name}" if name
   puts "PRODUCT:  #{prod}" if prod
+  puts "MODEL:    #{model}" if model
   puts "VERSION:  #{ver}" if ver
   puts "UPTIME:   %02d:%02d:%02d:%02d" % [days,hrs,mins,secs]
   unknown.each {|line| puts "UNKNOWN:  #{line}"}
